@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog_visits",
+  "info": {
+    "singularName": "blog-visit",
+    "pluralName": "blog-visits",
+    "displayName": "Blog visit",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ip": {
+      "type": "string",
+      "required": true
+    },
+    "blog": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::blog.blog",
+      "inversedBy": "blog_visits"
+    }
+  }
+}

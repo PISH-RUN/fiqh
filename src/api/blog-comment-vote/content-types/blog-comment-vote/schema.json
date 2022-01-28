@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog_comment_votes",
+  "info": {
+    "singularName": "blog-comment-vote",
+    "pluralName": "blog-comment-votes",
+    "displayName": "Blog Comment Vote"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "vote": {
+      "type": "boolean",
+      "required": true
+    },
+    "blog_comment": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::blog-comment.blog-comment",
+      "inversedBy": "blog_comment_votes"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "blog_comment_votes"
+    }
+  }
+}

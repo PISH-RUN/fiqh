@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog_bookmarks",
+  "info": {
+    "singularName": "blog-bookmark",
+    "pluralName": "blog-bookmarks",
+    "displayName": "Blog bookmark"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "blog_bookmarks"
+    },
+    "blog": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::blog.blog",
+      "inversedBy": "blog_bookmarks"
+    }
+  }
+}
