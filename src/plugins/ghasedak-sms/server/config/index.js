@@ -7,10 +7,10 @@ module.exports = {
   }),
   validator: (config) => {
     if (!config.apiKey) {
-      throw new Error("Ghasedak Api key is not recognized");
+      throw new Error("GHASEDAK_API_KEY is missing");
     }
     if (!config.lineNumber) {
-      throw new Error("Ghasedak LineNumber is not recognized");
+      throw new Error("GHASEDAK_LINE_NUMBER is missing");
     }
   },
 };

@@ -8,9 +8,7 @@
 
 // const crypto = require("crypto");
 const bcrypt = require("bcryptjs");
-const urlJoin = require("url-join");
-
-const { getAbsoluteServerUrl, sanitize } = require("@strapi/utils");
+const { sanitize } = require("@strapi/utils");
 const getService = (name) => {
   return strapi.plugin("users-permissions").service(name);
 };
@@ -144,7 +142,16 @@ module.exports = ({ strapi }) => ({
     return bcrypt.compare(password, hash);
   },
 
-  async sendConfirmationEmail(user) {
+  async sendVerifyEmail(user) {
+    const confirmationToken = this.generateConfirmationCode();
+
+    let expireDate = Date.now() + EXPIRATION_CODE_LIMIT;
+
+    await this.edit(user.id, {
+      confirmationToken,
+      codeExpiration: expireDate,
+    });
+
     const userPermissionService = getService("users-permissions");
     const pluginStore = await strapi.store({
       type: "plugin",
@@ -162,29 +169,10 @@ module.exports = ({ strapi }) => ({
       user
     );
 
-    const confirmationToken = this.generateConfirmationCode();
-
-    await this.edit(user.id, {
-      confirmationToken,
-      codeExpiration: Date.now() + EXPIRATION_CODE_LIMIT,
-    });
-
-    const apiPrefix = strapi.config.get("api.rest.prefix");
-    settings.message = await userPermissionService.template(settings.message, {
-      URL: urlJoin(
-        getAbsoluteServerUrl(strapi.config),
-        apiPrefix,
-        "/auth/email-confirmation"
-      ),
-      USER: sanitizedUserInfo,
-      CODE: confirmationToken,
-    });
-
     settings.object = await userPermissionService.template(settings.object, {
       USER: sanitizedUserInfo,
     });
 
-    // Send an email to the user.
     await strapi
       .plugin("email")
       .service("email")
@@ -196,16 +184,21 @@ module.exports = ({ strapi }) => ({
             : undefined,
         replyTo: settings.response_email,
         subject: settings.object,
-        text: settings.message,
-        html: settings.message,
+        text: `Confirmation Code is: ${confirmationToken}`,
+        html: `Confirmation Code is: ${confirmationToken}`,
       });
+
+    return expireDate;
   },
-  async sendSms(user) {
+
+  async sendVerifySms(user) {
     const confirmationToken = this.generateConfirmationCode();
+
+    let expireDate = Date.now() + EXPIRATION_CODE_LIMIT;
 
     await this.edit(user.id, {
       confirmationToken,
-      codeExpiration: Date.now() + EXPIRATION_CODE_LIMIT,
+      codeExpiration: expireDate,
     });
 
     let message = `Confirmation Code is: ${confirmationToken}`;
@@ -214,5 +207,7 @@ module.exports = ({ strapi }) => ({
       .plugin("ghasedak-sms")
       .service("myService")
       .sendSms({ message, receptor: user.mobile });
+
+    return expireDate;
   },
 });

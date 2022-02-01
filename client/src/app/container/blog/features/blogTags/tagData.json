@@ -1,0 +1,34 @@
+[
+  {
+    "name": "بین الملل",
+    "imgUrl": "/assets/images/tag-1.png"
+  },
+  {
+    "name": "سیاسی",
+    "imgUrl": "/assets/images/tag-2.png"
+  },
+  {
+    "name": "اقتصادی",
+    "imgUrl": "/assets/images/tag-3.png"
+  },
+  {
+    "name": "سلامت",
+    "imgUrl": "/assets/images/tag-4.png"
+  },
+  {
+    "name": "رسانه ها",
+    "imgUrl": "/assets/images/tag-5.png"
+  },
+  {
+    "name": "ورزشی",
+    "imgUrl": "/assets/images/tag-6.png"
+  },
+  {
+    "name": "تکنولوژی",
+    "imgUrl": "/assets/images/tag-7.png"
+  },
+  {
+    "name": "طبیعت",
+    "imgUrl": "/assets/images/tag-8.png"
+  }
+]

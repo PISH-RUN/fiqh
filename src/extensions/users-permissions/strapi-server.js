@@ -1,23 +1,17 @@
+const customRoutes = require("./server/routes");
 const customController = require("./server/controllers/auth");
 const customUserController = require("./server/controllers/user");
 const customService = require("./server/services/user");
 const customProviders = require("./server/services/providers");
 
 module.exports = (plugin) => {
+  plugin.routes = customRoutes;
+
   plugin.controllers.auth = customController;
   plugin.controllers.user = customUserController;
   plugin.services.user = customService;
 
   plugin.services.providers = customProviders;
-
-  plugin.routes["content-api"].routes.push({
-    method: "PATCH",
-    path: "/user/update/me",
-    handler: "user.updateMe",
-    config: {
-      prefix: "",
-    },
-  });
 
   return plugin;
 };
