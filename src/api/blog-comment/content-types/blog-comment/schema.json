@@ -39,8 +39,15 @@
     },
     "comment": {
       "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::blog-comment.blog-comment",
+      "inversedBy": "blog_comments"
+    },
+    "blog_comments": {
+      "type": "relation",
       "relation": "oneToMany",
-      "target": "api::blog-comment.blog-comment"
+      "target": "api::blog-comment.blog-comment",
+      "mappedBy": "comment"
     },
     "voteCount": {
       "pluginOptions": {

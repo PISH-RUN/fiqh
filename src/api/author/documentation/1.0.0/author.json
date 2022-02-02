@@ -2837,6 +2837,23 @@
                                                                                       "type": "object",
                                                                                       "properties": {
                                                                                         "data": {
+                                                                                          "type": "object",
+                                                                                          "properties": {
+                                                                                            "id": {
+                                                                                              "type": "string"
+                                                                                            },
+                                                                                            "attributes": {
+                                                                                              "type": "object",
+                                                                                              "properties": {}
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    },
+                                                                                    "blog_comments": {
+                                                                                      "type": "object",
+                                                                                      "properties": {
+                                                                                        "data": {
                                                                                           "type": "array",
                                                                                           "items": {
                                                                                             "type": "object",
@@ -6994,6 +7011,23 @@
                                                                                     "type": "object",
                                                                                     "properties": {
                                                                                       "data": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                          "id": {
+                                                                                            "type": "string"
+                                                                                          },
+                                                                                          "attributes": {
+                                                                                            "type": "object",
+                                                                                            "properties": {}
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  },
+                                                                                  "blog_comments": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                      "data": {
                                                                                         "type": "array",
                                                                                         "items": {
                                                                                           "type": "object",
@@ -11069,6 +11103,23 @@
                                                                                     "type": "object",
                                                                                     "properties": {
                                                                                       "data": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                          "id": {
+                                                                                            "type": "string"
+                                                                                          },
+                                                                                          "attributes": {
+                                                                                            "type": "object",
+                                                                                            "properties": {}
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  },
+                                                                                  "blog_comments": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                      "data": {
                                                                                         "type": "array",
                                                                                         "items": {
                                                                                           "type": "object",
@@ -15132,6 +15183,23 @@
                                                                                     }
                                                                                   },
                                                                                   "comment": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                      "data": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                          "id": {
+                                                                                            "type": "string"
+                                                                                          },
+                                                                                          "attributes": {
+                                                                                            "type": "object",
+                                                                                            "properties": {}
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  },
+                                                                                  "blog_comments": {
                                                                                     "type": "object",
                                                                                     "properties": {
                                                                                       "data": {
@@ -19480,6 +19548,23 @@
                                                                                     }
                                                                                   },
                                                                                   "comment": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                      "data": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                          "id": {
+                                                                                            "type": "string"
+                                                                                          },
+                                                                                          "attributes": {
+                                                                                            "type": "object",
+                                                                                            "properties": {}
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  },
+                                                                                  "blog_comments": {
                                                                                     "type": "object",
                                                                                     "properties": {
                                                                                       "data": {
