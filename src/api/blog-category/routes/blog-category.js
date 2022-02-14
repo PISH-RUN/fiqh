@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
 /**
  * blog-category router.
  */
 
-const { createCoreRouter } = require('@strapi/strapi').factories;
+const { createCoreRouter } = require("@strapi/strapi").factories;
 
-module.exports = createCoreRouter('api::blog-category.blog-category');
+module.exports = createCoreRouter("api::blog-category.blog-category");

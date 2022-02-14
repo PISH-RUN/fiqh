@@ -33,6 +33,7 @@ module.exports = [
     handler: "auth.codeConfirmation",
     config: {
       prefix: "",
+      auth: false,
     },
   },
 ];
